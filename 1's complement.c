@@ -45,7 +45,7 @@ int bin(int A[],int num)
 	}
 	return i;
 }
-//for printint the number
+//for printing the number
 void print(int A[],int n)
 {
 	int i;
