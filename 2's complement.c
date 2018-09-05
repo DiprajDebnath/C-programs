@@ -32,7 +32,7 @@ main()
 	printf("\n2's comp is ");
 	print(b,i);
 }
-//prntint array
+//printing array
 void print(int A[],int n)
 {
 	int i;
@@ -41,7 +41,7 @@ void print(int A[],int n)
 		printf("%d",A[i]);
 	}
 }
-//2's complement
+//2's complement function
 void comp(int b[],int i)
 {
 	int l,g;
