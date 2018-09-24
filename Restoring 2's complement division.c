@@ -127,13 +127,14 @@ void leftShift(int A[],int n,int s)
 }
 void bin(int A[],int m,int n)
 {
-	int i;
+	int i=n-1;
 	if(m<0)
 	m=-1*m;
-	for(i=n-1;i>=0;i--)
+	while(m!=0)
 	{
 		A[i]=m%2;
 		m=m/2;
+		i--;
 	}
 }
 void print(int A[],int n)
