@@ -178,17 +178,17 @@ void Add(int A[],int B[],int n)
 	    {
 	    	S[i]=0;
 	    	C=1;
-    	}
-    	else if(A[i]+B[i]+C==3)
+    	    }
+    	    else if(A[i]+B[i]+C==3)
 	    {
 	    	S[i]=1;
 	    	C=1;
-    	}
-    	i--;
-     } while(i>=0);
+    	    }
+    	    i--;
+          } while(i>=0);
     
 	for(j=0;j<n;j++)
-    {
+        {
     	A[j]=S[j];
 	}
 }
@@ -196,36 +196,36 @@ void Sub(int A[],int B[],int n)
 {
 	int i=n-1,j,C=0,S[n],Mn[n];
 	for(j=0;j<=n;j++)
-    {
+        {
     	Mn[j]=B[j];
 	}
 	twosComp(Mn,n);
 	do{
-		if(A[i]+Mn[i]+C==0)
-	    {
-	    	S[i]=0;
-	        C=0;
-		}
-	    else if(A[i]+Mn[i]+C==1)
-	   	{
-	    	S[i]=1;
-	       	C=0;
-		}
-	    else if(A[i]+Mn[i]+C==2)
-	    {
-	    	S[i]=0;
-	    	C=1;
-    	}
-    	else if(A[i]+Mn[i]+C==3)
-	    {
-	    	S[i]=1;
-	    	C=1;
-    	}
-    	i--;
-     } while(i>=0);
+	   if(A[i]+Mn[i]+C==0)
+	   {
+	     S[i]=0;
+	     C=0;
+           }
+	   else if(A[i]+Mn[i]+C==1)
+	   {
+	     S[i]=1;
+	     C=0;
+	   }
+	   else if(A[i]+Mn[i]+C==2)
+	   {
+	     S[i]=0;
+	     C=1;
+    	   }
+    	   else if(A[i]+Mn[i]+C==3)
+	   {
+	     S[i]=1;
+	     C=1;
+    	   }
+    	   i--;
+        } while(i>=0);
     
 	for(j=0;j<n;j++)
-    {
-    	A[j]=S[j];
+        {
+    	 A[j]=S[j];
 	}
 }
