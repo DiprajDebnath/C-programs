@@ -3,7 +3,7 @@
 void bin(int [],int ,int );
 void Print(int [],int );
 void twosComp(int [],int );
-void rShift(int [],int ,int);
+void rShift(int [],int );
 void Add(int [],int [],int );
 void Sub(int [],int [],int );
 int binTOdeci(int [],int [],int );
@@ -42,9 +42,9 @@ void booths(int A[],int M[],int Q[],int i)
 		if((Q[n]==1 && Qn==1) || (Q[n]==0 && Qn==0))
 		{
 			Qn=Q[n];
-			rShift(Q,i,0);
+			rShift(Q,i);
 			Q[0]=A[n];
-			rShift(A,i,1);
+			rShift(A,i);
 			count--;
 			Print(A,i);
 			printf("\t");
@@ -60,9 +60,9 @@ void booths(int A[],int M[],int Q[],int i)
 			printf("\t%d",Qn);
 			printf("\t\tA=A-M\n");
 			Qn=Q[n];
-			rShift(Q,i,0);
+			rShift(Q,i);
 			Q[0]=A[n];
-			rShift(A,i,1);
+			rShift(A,i);
 			count--;
 			Print(A,i);
 			printf("\t");
@@ -78,9 +78,9 @@ void booths(int A[],int M[],int Q[],int i)
 			printf("\t%d",Qn);
 			printf("\t\tA=A+M\n");
 			Qn=Q[n];
-			rShift(Q,i,0);
+			rShift(Q,i);
 			Q[0]=A[n];
-			rShift(A,i,1);
+			rShift(A,i);
 			count--;
 			Print(A,i);
 			printf("\t");
@@ -134,26 +134,15 @@ void twosComp(int b[],int i)
 		  b[g]=1;
 	}
 }
-void rShift(int A[],int n,int s)
+void rShift(int A[],int n)
 {
 	int i;
-	if(s==1)//1 for A and 0 for Q
-	{
-		for(i=n-1;i>0;i--)
-	    {
-			A[i]=A[i-1];
-		}
-		if(A[i]==1)
-			A[i]=1;
-		else
-			A[i]=0;
+
+	for(i=n-1;i>0;i--)
+    {
+		A[i]=A[i-1];
 	}
-	else{
-		for(i=n-1;i>0;i--)
-	    {
-			A[i]=A[i-1];
-		}
-	}
+	
 }
 void Add(int A[],int B[],int n)
 {
@@ -184,7 +173,7 @@ void Add(int A[],int B[],int n)
     
 	for(j=0;j<n;j++)
     {
-    	A[j]=S[j];
+    	A[j]=S[j];//A=A+M, copying everything to A
 	}
 }
 void Sub(int A[],int B[],int n)
@@ -228,30 +217,30 @@ int binTOdeci(int A[],int Q[],int n)
 {
 	int k,m=2*n,S[m];
 	int i=m-1,j=0,sum=0;
-	for(k=0;k<n;k++)
+	for(k=0;k<n;k++)//to combine the two arrays
 	{
 		S[k]=A[k];
 		S[k+n]=Q[k];
 	}
-	if(S[0]==1)
+	if(S[0]==1)//if negative
 	{
 		twosComp(S,m);
 		while(i>0)
 		{
-			sum=sum+S[i]*pow(2,j);
+			sum=sum+S[i]*pow(2,j);//sum=sum+r*pow(base,i);
 			j++;
 			i--;
 		}
 	
-	return sum*(-1);
+	return sum*(-1);//since negative
    }
    else
    {
    	while(i>0)
 		{
-			sum=sum+S[i]*pow(2,j);
+			sum=sum+S[i--]*pow(2,j);//sum=sum+r*pow(base,i);
 			j++;
-			i--;
+		//	i--;
 		}
 	
 	return sum;
