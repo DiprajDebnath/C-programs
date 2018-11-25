@@ -109,21 +109,11 @@ int binTOdeci(int A[],int n)
 void leftShift(int A[],int n,int s)
 {
 	int i;
-	if(s==1)//1 for Q and 0 for A
+	for(i=0;i<n-1;i++)
 	{
-		for(i=0;i<n-1;i++)
-	    {
-			A[i]=A[i+1];
-		}
-		A[i]=0;
+		A[i]=A[i+1];
 	}
-	else
-	{
-		for(i=0;i<n-1;i++)
-	    {
-			A[i]=A[i+1];
-		}
-	}
+	
 }
 void bin(int A[],int m,int n)
 {
